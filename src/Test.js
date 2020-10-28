@@ -5,8 +5,10 @@ class test extends React.Component{
     constructor(props) {
         super(props)
         console.log(" i'm in constructer");
-        this.state = {date: new Date(),
-                      name:"mohanraj"
+        this.state = {
+          date: new Date(),
+          name:"mohanraj",
+          age : 31
         };
         
 
@@ -29,22 +31,32 @@ class test extends React.Component{
     console.log('GET DRIVED STATE FROM PROPS');
         // Return null to indicate no change to state.
         return null;
-      }
-
-
-   shouldComponentUpdate(nextProps, nextState) {
-
-        console.log('SHOULD COMP UPDATE');
-        
-        
     }
 
 
-render(){
-    console.log(" i'm in render");
-   return(
+
+
+    namehandleer=(e)=>{
+      this.setState({
+        [e.target.name] : e.target.value,
+        [e.target.age] : e.target.value
+      
+      });
+   }
+ 
+     
+ 
+
+render()
+{
+
+ console.log(" i'm in render");
+  return(
 <div>
- <h2>It is {this.state.name}</h2>
+ <h2>My name is  {this.state.Name}</h2>
+ <h2>I'm {this.state.Age} Old.</h2>
+ <input type='text' name='Name' onChange={this.namehandleer}></input>
+ <input type='text' name='Age' onChange={this.namehandleer}></input>
  <button onClick={this.handleClick}>Click Me</button>
 </div>
 
