@@ -13,8 +13,7 @@ class test extends React.Component{
         
 
       }
-
-      
+     
       componentDidMount(){
 
         console.log('child did mount');
@@ -26,16 +25,6 @@ class test extends React.Component{
       }
         
     
-   static getDerivedStateFromProps(props, state) {
-  
-    console.log('GET DRIVED STATE FROM PROPS');
-        // Return null to indicate no change to state.
-        return null;
-    }
-
-
-
-
     namehandleer=(e)=>{
       this.setState({
         [e.target.name] : e.target.value,
@@ -44,15 +33,13 @@ class test extends React.Component{
       });
    }
  
-     
- 
-
 render()
 {
 
  console.log(" i'm in render");
   return(
 <div>
+  <h1>{this.props.Name}</h1>
  <h2>My name is  {this.state.Name}</h2>
  <h2>I'm {this.state.Age} Old.</h2>
  <input type='text' name='Name' onChange={this.namehandleer}></input>
